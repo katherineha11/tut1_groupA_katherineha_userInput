@@ -26,6 +26,11 @@ class Wheel {
       this.dotBgColor = randomColor();
       this.finalCircleColor = randomColor();
       this.curvedLineColor = randomColor();
+
+      // Save outer radius for stacking logic
+      Wheel.prototype.updateOuterVisualRadius = function () {
+        this.outerVisualRadius = this.radius * 0.45 + 18 + (6 - 1) * 13 + 10;
+      };
     }
     
     // Added: update method to increase angle each frame
@@ -136,3 +141,25 @@ class Wheel {
   function randomColor() {
     return color(random(255), random(255), random(255));
   }
+  
+// Animate each wheel's properties:
+// - Increase rotation angle for visual spinning
+// - Detect if mouse is hovering and enlarge wheel smoothly
+// - Apply jitter if in shaking state
+// - Smoothly move toward target position using lerp for natural motion
+  Wheel.prototype.update = function () {
+    this.angle += this.rotationSpeed;
+    let d = dist(mouseX, mouseY, this.x, this.y);
+    this.isHovered = d < this.radius;
+    this.targetRadius = this.isHovered ? this.baseRadius * 1.5 : this.baseRadius;
+    this.radius = lerp(this.radius, this.targetRadius, 0.4);
+    this.updateOuterVisualRadius(); // 💡 update for stacking hitbox
+  
+    if (state === "shaking") {
+      this.x += random(-3, 3);
+      this.y += random(-3, 3);
+    }
+  
+    this.x = lerp(this.x, this.targetX || this.x, 0.1);
+    this.y = lerp(this.y, this.targetY || this.y, 0.1);
+  };
