@@ -47,7 +47,15 @@ class Wheel {
   
       // Smoothly interpolate radius using lerp()
       this.radius = lerp(this.radius, this.targetRadius, 0.4);
-    }
+      
+     if (state === "shaking") {
+      this.x += random(-3, 3);
+      this.y += random(-3, 3);
+     }
+
+    this.x = lerp(this.x, this.targetX || this.x, 0.1);
+    this.y = lerp(this.y, this.targetY || this.y, 0.1);
+  }
   
     display() {
       push();
@@ -130,4 +138,18 @@ class Wheel {
       noFill();
       beginShape();
       vertex(0, 0);
-      bezierVertex(30,
+      bezierVertex(30, -20, 60, -30, 90, -60);
+      endShape();
+  
+      pop();
+    }
+  
+  updateOuterVisualRadius() {
+    this.outerVisualRadius = this.radius * 0.45 + 18 + (6 - 1) * 13 + 10;
+  }
+}
+
+  // Random color generator function
+  function randomColor() {
+    return color(random(255), random(255), random(255));
+  }

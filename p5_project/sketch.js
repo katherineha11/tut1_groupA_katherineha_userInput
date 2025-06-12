@@ -147,6 +147,7 @@ function draw() {
 }
 
 function startStackingGame() {
+  // Function to play the game again
   gameStart = true;
   currentWheel = new Wheel(width / 2, -baseRadius, baseRadius);
   currentWheel.updateOuterVisualRadius();
@@ -157,6 +158,7 @@ function startStackingGame() {
 }
 
 function hitsStackEdge(w) {
+  // Handle collision between falling wheel and stacked ones
   if (w.y + w.outerVisualRadius >= height) {
     w.y = height - w.outerVisualRadius;
     return true;
@@ -237,6 +239,7 @@ function keyPressed() {
 
 function keyReleased() {
   if (gameStart) {
+    // Stop horizontal movement when arrow keys are released
     if (keyCode === LEFT_ARROW) moveLeft = false;
     if (keyCode === RIGHT_ARROW) moveRight = false;
   }
@@ -244,6 +247,7 @@ function keyReleased() {
 
 function mousePressed() {
   if (state === "shaking") {
+    // When wheel is clicked → trigger fallingPhase1
     for (let w of wheels) {
       let d = dist(mouseX, mouseY, w.x, w.y);
       if (d < w.radius) {
