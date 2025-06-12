@@ -130,36 +130,4 @@ class Wheel {
       noFill();
       beginShape();
       vertex(0, 0);
-      bezierVertex(30, -20, 60, -30, 90, -60);
-      endShape();
-  
-      pop();
-    }
-  }
-  
-  // Random color generator function
-  function randomColor() {
-    return color(random(255), random(255), random(255));
-  }
-  
-// Animate each wheel's properties:
-// - Increase rotation angle for visual spinning
-// - Detect if mouse is hovering and enlarge wheel smoothly
-// - Apply jitter if in shaking state
-// - Smoothly move toward target position using lerp for natural motion
-  Wheel.prototype.update = function () {
-    this.angle += this.rotationSpeed;
-    let d = dist(mouseX, mouseY, this.x, this.y);
-    this.isHovered = d < this.radius;
-    this.targetRadius = this.isHovered ? this.baseRadius * 1.5 : this.baseRadius;
-    this.radius = lerp(this.radius, this.targetRadius, 0.4);
-    this.updateOuterVisualRadius(); // 💡 update for stacking hitbox
-  
-    if (state === "shaking") {
-      this.x += random(-3, 3);
-      this.y += random(-3, 3);
-    }
-  
-    this.x = lerp(this.x, this.targetX || this.x, 0.1);
-    this.y = lerp(this.y, this.targetY || this.y, 0.1);
-  };
+      bezierVertex(30,

@@ -63,5 +63,5 @@ I asked ChatGPT how to resolve overlapping circles based on their angle and dist
 let angle = atan2(dy, dx);
 w.x = sw.x + cos(angle) * requiredDist;
 w.y = sw.y + sin(angle) * requiredDist;
+```
 ![ChatGPT Conversation](p5_project/libraries/images/AI_1.png)
-
