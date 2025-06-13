@@ -54,8 +54,10 @@ I chose **User Input** to drive my individual animation.
 ## 5. Tools and Techniques From Outside the Course
 
 ### Trigonometric Repositioning (via ChatGPT):
-I needed help solving the overlap issue when wheels stacked. 
-![Problem when wheels falling](p5_project/libraries/images/wheel_problem_1.png)
+I needed help solving the overlap issue when wheels stacked.
+<p align="center">
+  <img src="p5_project/libraries/images/wheel_problem_1.png" alt="Problem when wheels falling" width="600">
+</p>
 I asked ChatGPT how to resolve overlapping circles based on their angle and distance. It helped me use this logic:
 
 ```js
@@ -63,4 +65,6 @@ let angle = atan2(dy, dx);
 w.x = sw.x + cos(angle) * requiredDist;
 w.y = sw.y + sin(angle) * requiredDist;
 ```
-![ChatGPT Conversation](p5_project/libraries/images/AI_1.png)
+<p align="center">
+  <img src="p5_project/libraries/images/AI_1.png" alt="ChatGPT Conversation" width="400">
+</p>
