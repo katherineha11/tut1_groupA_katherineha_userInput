@@ -7,7 +7,7 @@ The individual creative coding submission of Katherine Ha (miha0405)
 1. Open the sketch in your browser.
 2. Hover your mouse over the wheels to explore and interact with each wheel.
 3. Press **ENTER** to activate shaking animation.
-4. Click on a wheel to start the broke and fall-down sequence.
+4. Click on a random wheel to start the broke and fall-down sequence.
 5. After the screen turns white, the stacking game begins!!!
 6. Use **← / → arrow keys** to move the falling wheel left and right as you want.
 7. Try to stack wheels accurately. The game ends when the stack reaches the top.
@@ -41,7 +41,6 @@ I chose **User Input** to drive my individual animation.
 ### Key Features:
 - Created 5 game states: `idle`, `shaking`, `fallingPhase1`, `fallingPhase2`, and `gameStart`.
 - Built a collision system to detect and reposition overlapping circles on contact.
-- Used `lerp()` for smooth scale transitions and hover animation.
 - Controlled movement with real-time key input (`←` and `→`).
 - Used `atan2()`, `cos()`, and `sin()` to calculate wheel spacing during stacking.
 
