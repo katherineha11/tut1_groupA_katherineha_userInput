@@ -66,5 +66,5 @@ w.x = sw.x + cos(angle) * requiredDist;
 w.y = sw.y + sin(angle) * requiredDist;
 ```
 <p align="center">
-  <img src="p5_project/libraries/images/AI_1.png" alt="ChatGPT Conversation" width="400">
+  <img src="p5_project/libraries/images/AI_1.png" alt="ChatGPT Conversation" width="600">
 </p>
